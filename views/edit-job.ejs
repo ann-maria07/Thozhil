@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Job</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      background-image: url("images/backg.jpeg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    input[type="submit"] {
+      background-color: #060505;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #262525;
+      transform: scale(0.92);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    /* Logout button styles */
+    .logout-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #000000;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .logout-button:hover {
+      background-color: #2c2c2c;
+    }
+  </style>
+</head>
+<body>
+  <!-- Add the logout button at the top right corner -->
+  <button class="logout-button" onclick="logout()">Logout</button>
+
+  <h1>Edit Job</h1>
+
+  <form method="POST" action="/jobs/<%= job._id %>/update">
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" value="<%= job.location %>">
+
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" value="<%= job.fullName %>">
+
+    <label for="employerPassword">Employer Password:</label>
+    <input type="text" id="employerPassword" name="employerPassword" value="<%= job.employerPassword %>">
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" value="<%= job.email %>">
+
+    <label for="mobileNumber">Mobile Number:</label>
+    <input type="text" id="mobileNumber" name="mobileNumber" value="<%= job.mobileNumber %>">
+
+    <label for="jobType">Job Type:</label>
+    <input type="text" id="jobType" name="jobType" value="<%= job.jobType %>">
+
+    <label for="companyName">Company Name:</label>
+    <input type="text" id="companyName" name="companyName" value="<%= job.companyName %>">
+
+    <label for="salary">Salary:</label>
+    <input type="text" id="salary" name="salary" value="<%= job.salary %>">
+
+    <label for="jobDescription">Job Description:</label>
+    <textarea id="jobDescription" name="jobDescription"><%= job.jobDescription %></textarea>
+
+    <label for="jobName">Job Name:</label>
+    <input type="text" id="jobName" name="jobName" value="<%= job.jobName %>">
+
+    <label for="vacancies">Vacancies:</label>
+    <input type="text" id="vacancies" name="vacancies" value="<%= job.vacancies %>">
+
+    <!-- Add other input fields as needed -->
+
+    <input type="submit" value="Update Job">
+  </form>
+
+
+  <% if (typeof success !== 'undefined' && success) { %>
+    <script>
+      alert("Job updated successfully!");
+      window.location.href = "/index";
+    </script>
+  <% } %>
+
+  <script>
+    // JavaScript function to handle logout
+    function logout() {
+      // Perform logout actions here, such as clearing session data, redirecting, etc.
+      // Example:
+      // Clear session storage
+      sessionStorage.clear();
+      // Redirect to the login page
+      window.location.href = '/index';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="employerpost.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+    .input-box select {
+      width: 100%;
+    }
+    .input-box.job-description {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .job-details-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+    }
+    .job-details-container .column {
+      flex-basis: 45%;
+    }
+    .job-details-container .column input {
+      width: 100%;
+    }
+    .input-cntnr {
+      margin-top: 40px;
+    }
+
+    .logout-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #000000;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .logout-button:hover {
+      background-color: #2c2c2c;
+    }
+  </style>
+  <script>
+    $(document).ready(function() {
+      $('#calendarIcon').click(function(e) {
+        e.preventDefault();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <button class="logout-button" onclick="logout()">Logout</button>
+
+  <div class="container">
+    <div class="title">Register-Post A Job</div>
+    <form action="/post-job" method="POST">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Full Name</span>
+          <input type="text" name="fullName" placeholder="Enter your name" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Employer Password</span>
+          <input type="password" name="employerPassword" placeholder="Enter your password" minlength="8" maxlength="100" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Email</span>
+          <input type="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Mobile Number</span>
+          <input type="text" name="mobileNumber" placeholder="Enter your mobile number" required>
+        </div>
+        <div class="input-box">
+          <div class="jobType">
+            <span class="details">Job-Type</span>
+            <select name="jobType" required>
+              <option value="">Select Job Type</option>
+              <option value="parttime">Part Time</option>
+              <option value="fulltime">Full Time</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-box">
+          <span class="details">Company Name (If Any)</span>
+          <input type="text" name="companyName" placeholder="Enter your company name">
+        </div>
+        <div class="input-box">
+          <div class="location">
+            <span class="details">District</span>
+            <select name="location" required>
+              <option value="Kasaragod"> Kasaragod</option>
+              <option value="Kannur">Kannur</option>
+              <option value="Wayanad">Wayanad</option>
+              <option value="Kozhikode">Kozhikode</option>
+              <option value="Palakkad">Palakkad</option>
+              <option value="Thrissur">Thrissur</option>
+              <option value="Ernakulam">Ernakulam</option>
+              <option value="Idukki">Idukki</option>
+              <option value="Malappuram">Malappuram</option>
+              <option value="Kottayam">Kottayam</option>
+              <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+              <option value="Kollam">Kollam</option>
+              <option value="Alappuzha">Alappuzha</option>
+              <option value="Pathanamthitta">Pathanamthitta</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-box">
+          <span class="details">Salary</span>
+          <input type="number" name="salary" placeholder="Enter your salary" required>
+        </div>
+        <div class="input-box job-description">
+          <div class="job-description-container">
+            <span class="details">Job Description</span>
+            <textarea name="jobDescription" placeholder="Enter your job description" required></textarea>
+          </div>
+        </div>
+        <div class="job-details-container">
+          <div class="input-box column">
+            <span class="details">Job Name</span>
+            <input type="text" name="jobName" placeholder="Enter job name" required>
+          </div>
+          <div class="input-box column">
+            <span class="details">Vacancies</span>
+            <input type="number" name="vacancies" placeholder="Enter number of vacancies" required>
+          </div>
+        </div>
+        <div class="input-cntnr">
+          <div class="hero-btn">
+            <button type="submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+
+  <script>
+    // JavaScript function to handle logout
+    function logout() {
+      // Perform logout actions here, such as clearing session data, redirecting, etc.
+      // Example:
+      // Clear session storage
+      sessionStorage.clear();
+      // Redirect to the login page
+      window.location.href = 'login';
+    }
+  </script>
+</body>
+
+</html>

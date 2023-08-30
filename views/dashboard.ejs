@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Body styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-image: url("images/backg.jpeg");
+      position: relative; /* Added to allow absolute positioning */
+    }
+
+    /* Dashboard container styles */
+    .dashboard-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.8); /* Set a higher alpha value for less transparency */
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      border: 2px solid #000;
+    }
+
+    /* Welcome message styles */
+    .welcome-message {
+      font-size: 24px;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    /* Buttons style */
+    .dashboard-btns {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .dashboard-btns a {
+      margin: 0 10px;
+      padding: 10px 20px;
+      text-decoration: none;
+      background-color: #000;
+      color: #fff;
+      border-radius: 5px;
+      text-transform: uppercase;
+    }
+
+    .dashboard-btns a:hover {
+      background-color: #1e1e1e;
+    }
+     /* Logout button styles */
+     .logout-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .logout-btn:hover {
+      background-color: #1e1e1e;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+</head>
+<body>
+  <a href="/index" class="logout-btn">Logout</a>
+  <div class="dashboard-container">
+    <h1 class="welcome-message">Welcome <%= employee.name %>!</h1>
+    <div class="dashboard-btns">
+      <a href="/joblist">See All Jobs</a>
+      <a href="/see-my-jobs">See My Jobs</a>
+    </div>
+  </div>
+</body>
+</html>

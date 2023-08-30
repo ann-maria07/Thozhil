@@ -1,0 +1,316 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(images/backg.jpeg);
+  background-size: cover;
+  text-align: center;
+  opacity: 1.5;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background-size: cover;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  opacity: 0.9;
+}
+
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  text-align: left;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.container .title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: url(images/backg.jpeg);
+  background: none; 
+}
+
+.container form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+form .user-details .input-box {
+  margin: 20px 0 12px 0;
+  width: calc(50% - 14px);
+}
+
+.user-details .input-box {
+  margin: 20px 0;
+}
+
+.user-details .input-box .details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.user-details .input-box input {
+  height: 45px;
+  width: 100%;
+}
+
+.user-details .input-box .select-gender {
+  text-align: left;
+}
+
+.user-details .input-box .select-gender select {
+  height: 45px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.input-group {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.input-group input {
+  height: 45px;
+  width: 100%;
+  padding-right: 40px;
+}
+
+.input-group i {
+  position: absolute;
+  right: 10px;
+  color: #999;
+  cursor: pointer;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-box .details {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.input-box .input-group {
+  position: relative;
+}
+
+.input-box .column {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 300px;
+}
+
+.input-box .column input[type="text"] {
+  margin-bottom: 10px;
+}
+
+.user-details .input-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user-details .input-box .column {
+  flex-basis: calc(50% - 10px);
+}
+
+.input-box.job-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-box.job-description .job-description-container {
+  height: 200px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-box.job-description .job-details-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input-box.job-description .column {
+  flex-basis: calc(50% - 10px);
+  margin-bottom: 10px;
+}
+
+.container form .user-details .input-box .job-description-container textarea {
+  width: 200%;
+  height: 100%;
+}
+
+.container form .user-details .input-box .details .column {
+  flex-basis: calc(50% - 10px);
+}
+
+.container form .user-details .input-box .details .column:nth-child(2) {
+  margin-right: 20px;
+}
+
+.container form .input-box:last-child {
+  margin-top: 20px;
+}
+
+.input-box .column:last-child {
+  justify-content: space-between;
+  margin-left: 35px;
+  text-align: right;
+  margin-top: -20px;
+  width: 360px;
+}
+
+.input-cntnr {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 10px;
+
+}
+
+.input-cntnr .hero-btn {
+  text-align: left;
+}
+
+.input-cntnr .hero-btn button {
+  width: 100%;
+  height: 55px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: -100px;
+  /* Add more styles for the submit button */
+  text-transform: uppercase;
+  margin-left: 200px;
+}
+
+.input-cntnr .hero-btn button:hover {
+  background-color: #333;
+  transform: scale(0.92);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.user-pic {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.user-pic img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user-pic span {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 220px;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+  z-index: 1;
+}
+
+.user-pic:hover .user-dropdown {
+  display: block;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info h2 {
+  font-weight: bold;
+}
+
+.user-info img {
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.user-dropdown hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+
+.user-dropdown-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+}
+
+.user-dropdown-link p {
+  width: 100%;
+}
+
+.user-dropdown-link img {
+  width: 40px;
+  background: #e5e5e5;
+  border-radius: 50%;
+  padding: 8px;
+  margin-right: 15px;
+}
+
+.user-dropdown-link span {
+  font-size: 22px;
+  transition: transform 0.5s;
+}
+
+.user-dropdown-link:hover span {
+  transform: translateX(5px);
+}
+
+.user-dropdown-link:hover p {
+  font-weight: 600;
+}
+
+.user-dropdown.show {
+  display: block;
+}

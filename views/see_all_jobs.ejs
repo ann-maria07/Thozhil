@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Job Listings</title>
+  <style>
+    /* Reset CSS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #080808;
+      
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Search Container Styles */
+    .search-container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .search-container input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .search-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #070707;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      /* Additional styles */
+      text-transform: uppercase;
+    }
+
+    .search-container button:hover {
+      background-color: #212121;
+      transform: scale(0.95);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    /* Filter Container Styles */
+    .filter-container {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    .filter-container h2 {
+      margin-bottom: 10px;
+    }
+
+    .filter-container select {
+      padding: 10px;
+      width: 200px;
+      margin-right: 10px;
+    }
+
+    .filter-container button[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #000000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      /* Additional styles */
+      text-transform: uppercase;
+    }
+
+    .filter-container button[type="submit"]:hover {
+      background-color: #1e1e1e;
+      transform: scale(0.95);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    /* Job Listings Styles */
+    .job-listings {
+      padding: 20px;
+      /*display: grid;*/
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .job {
+      background-color: #fff;
+      border: 1px solid #bcb3b3;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .job:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .job {
+      background-color: #fff;
+      border: 1px solid #bcb3b3;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+
+    .job h3 {
+      margin: 0;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .job p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .job a {
+      text-decoration: none;
+      color: #f44336;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .job a::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #f44336;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+
+    .job a:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #080808;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin-bottom: 5px;
+    }
+
+    footer p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .logout-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .logout-btn:hover {
+      background-color: #1e1e1e;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Hello Job Seeker</h1>
+  </header>
+
+  <div class="search-container">
+    <form action="/joblist" method="GET">
+      <input type="text" name="search" placeholder="Search job name">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <div class="filter-container">
+    <form action="/joblist" method="GET">
+      <label for="location">Location:</label>
+      <select name="location" id="location">
+        <option value="">All</option>
+        <option value="Kasaragod">Kasaragod</option>
+        <option value="Kannur">Kannur</option>
+        <option value="Wayanad">Wayanad</option>
+        <option value="Kozhikode">Kozhikode</option>
+        <option value="Palakkad">Palakkad</option>
+        <option value="Thrissur">Thrissur</option>
+        <option value="Ernakulam">Ernakulam</option>
+        <option value="Idukki">Idukki</option>
+        <option value="Malappuram">Malappuram</option>
+        <option value="Kottayam">Kottayam</option>
+        <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+        <option value="Kollam">Kollam</option>
+        <option value="Alappuzha">Alappuzha</option>
+        <option value="Pathanamthitta">Pathanamthitta</option>
+      </select>
+      <label for="jobType">Job Type:</label>
+      <select name="jobType" id="jobType">
+        <option value="">All</option>
+        <option value="fulltime">Full Time</option>
+        <option value="parttime">Part Time</option>
+      </select>
+      <label for="salary">Salary:</label>
+      <select name="salary" id="salary">
+        <option value="">All</option>
+        <option value="1000">1,000+</option>
+        <option value="10000">10,000+</option>
+        <option value="25000">25,000+</option>
+      </select>
+      <button type="submit">Apply</button>
+    </form>
+  </div>
+
+  <div class="job-listings">
+    <% if (jobs.length > 0) { %>
+      <% jobs.forEach(function(job) { %>
+        <div class="job">
+          <h3><%= job.jobName %></h3>
+          <p><strong>Location:</strong> <%= job.location %></p>
+          <p><strong>Salary:</strong> <%= job.salary %></p>
+          <p><strong>Description:</strong> <%= job.jobDescription %></p>
+          <a href="/job-details/<%= job._id %>">View Details</a>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No jobs found.</p>
+    <% } %>
+  </div>
+
+  <a href="/index" class="logout-btn">Logout</a>
+
+  <footer>
+    <p>If you need any assistance or have any inquiries, please feel free to reach out to our support team.<br>
+      Email: support@thozhil.com<br>
+      Phone: +9876543210</p>
+    <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>

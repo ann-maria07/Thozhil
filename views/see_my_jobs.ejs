@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- views/see_my_jobs.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>See My Jobs</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 7px 0;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      margin-left: 550px;
+    }
+
+    .job-listings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .job {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 0 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 0 0 8px;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+    .apply-link {
+      color: #ff6347; /* Orange color */
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+      transition: color 0.3s;
+    }
+
+    .apply-link::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #ff6347; /* Orange color */
+      transition: width 0.3s;
+    }
+
+    .apply-link:hover::before {
+      width: 100%;
+    }
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    /* Add this CSS style after the existing styles */
+.logout-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #0c0c0c; /* Orange color for the button */
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #2b2a2a; /* Slightly darker shade on hover */
+}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h1>See My Jobs</h1>
+      <a href="/index" class="logout-button">Logout</a>
+    </div>
+  </header>
+  
+
+  <div class="job-listings">
+    <% recommendedJobs.forEach(job => { %>
+    <div class="job">
+      <h3><%= job.jobName %></h3>
+      <p><strong>Job Description:</strong> <%= job.jobDescription %></p>
+      <p><strong>Location:</strong> <%= job.location %></p>
+      <p><strong>Salary:</strong> <%= job.salary %></p>
+      <a href="/job-details/<%= job._id %>" class="apply-link">View Details</a>
+    </div>
+    <% }); %>
+  </div>
+
+  <footer>
+    <p>If you need any assistance or have any inquiries, please feel free to reach out to our support team.<br>
+      Email: support@thozhil.com<br>
+      Phone: +9876543210</p>
+    <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+  </footer>
+
+  <script src="/scripts.js"></script>
+</body>
+
+</html>

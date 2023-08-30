@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Job Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+      background-image: url("images/backg.jpeg");    
+        background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed; 
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #111111;
+      text-shadow: 2px 2px 4px rgba(167, 151, 151, 0.5);
+    }
+
+    .details-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      margin: 0 auto;
+      border: 2px solid #797878;
+    }
+
+    p {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .logout-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #111314;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background-color: #303030;
+    }
+
+
+    .details-container p {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .details-container strong {
+      font-weight: bold;
+    }
+
+    .job-name {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .job-description {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .job-type {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .company-info {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .job-details {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="details-container">
+    <h1 class="job-name"><%= job.jobName %></h1>
+
+      <p><strong>Full Name:</strong> <%= job.fullName %></p>
+      <p><strong>Email:</strong> <%= job.email %></p>
+      <p><strong>Mobile Number:</strong> <%= job.mobileNumber %></p>
+      <p><strong>Job-Type:</strong> <%= job.jobType %></p>
+      <p><strong>Company Name:</strong> <%= job.companyName %></p>
+      <p><strong>Location:</strong> <%= job.location %></p>
+      <p><strong>Salary:</strong> <%= job.salary %></p>
+      <p><strong>Job Description:</strong> <%= job.jobDescription %></p>
+      <p><strong>Vacancies:</strong> <%= job.vacancies %></p>
+
+    <a href="/index" class="logout-btn">Logout</a>
+  </div>
+</body>
+
+</html>
